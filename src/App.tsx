@@ -1,5 +1,4 @@
 import "./App.css";
-import { Jetton } from "./components/Jetton";
 import styled from "styled-components";
 import { Button, FlexBoxCol, FlexBoxRow } from "./components/styled/styled";
 import { CHAIN, TonConnectButton } from "@tonconnect/ui-react";
@@ -46,7 +45,6 @@ function App() {
                 : "N/A"}
             </Button>
           </FlexBoxRow>
-          {/* <Jetton /> */}
           <BusinessCard />
         </FlexBoxCol>
       </AppContainer>

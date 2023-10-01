@@ -1,24 +1,15 @@
-import React, { useState } from 'react';
-import { Address } from "ton-core";
-import { useJettonContract } from "../hooks/useJettonContract";
-import { useTonConnect } from "../hooks/useTonConnect";
+import React from 'react';
+import {useBusinessCardContract} from "../hooks/useBusinessCardContract";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart } from '@fortawesome/free-solid-svg-icons';
-import {
-  Card,
-  FlexBoxCol,
-  FlexBoxRow,
-  Button,
-  Ellipsis,
-} from "./styled/styled";
+
 import { faYoutube, faGithub, faTelegram, faTwitter } from '@fortawesome/free-brands-svg-icons';
 import me from "../assets/me.jpeg"
 
 import './BusinessCard.css';
 
 export function BusinessCard() {
-  const [likes, setLikes] = useState<number>(0);
-
+  const {likes, sendLike} = useBusinessCardContract();
 
   return (
     <div className='container'>
@@ -32,8 +23,8 @@ export function BusinessCard() {
         <h4 className='role'>Europe Community</h4>
         {/* <h5 className='web'><a href="http://society.ton.org">Society.ton.org</a></h5> */}
         <div className="like-container">
-                <FontAwesomeIcon icon={faHeart} className="heart-icon" onClick={() => setLikes(likes + 1)} />
-                <span>{likes}</span>
+                <FontAwesomeIcon icon={faHeart} className="heart-icon" onClick={() => sendLike()} />
+                &nbsp;<span>{likes}</span>
             </div>
 
         <div className='about'>
