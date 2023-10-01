@@ -9,7 +9,7 @@ import me from "../assets/me.jpeg"
 import './BusinessCard.css';
 
 export function BusinessCard() {
-  const {likes, sendLike} = useBusinessCardContract();
+  const {likes, userInfo, sendLike} = useBusinessCardContract();
 
   return (
     <div className='container'>
@@ -19,22 +19,24 @@ export function BusinessCard() {
       </div>
       
       <div className='sub-container'>
-        <h2 className='name'>TON Society</h2>
-        <h4 className='role'>Europe Community</h4>
-        {/* <h5 className='web'><a href="http://society.ton.org">Society.ton.org</a></h5> */}
+
         <div className="like-container">
                 <FontAwesomeIcon icon={faHeart} className="heart-icon" onClick={() => sendLike()} />
                 &nbsp;<span>{likes}</span>
             </div>
 
         <div className='about'>
-          <h3>About</h3>
-          <p> I'm a tech entrepreneur at heart. The ever-evolving world of technology has always fascinated me, and I've channeled this passion into creating innovative solutions and building successful enterprises. I believe in the transformative power of technology, and I'm always on the lookout for the next big thing that can make a difference in our lives. </p>
+          <h3>Name</h3>
+          <p> {userInfo ? userInfo.name : "loading..."} </p>
         </div>
         <div className='interest'>
-          <h3>Interests</h3>
-          <p> Outside the tech realm, sports play a significant role in my life. Be it hitting the gym, going for a jog, or catching a live game, sports invigorate my body and mind. Moreover, I have an insatiable hunger for knowledge. Every day presents an opportunity to dive into something new, be it a book, a hobby, or just a fresh perspective on life. For me, learning is not just about personal growth, but it's also a way to connect with the world around me. </p>
+          <h3>Profession</h3>
+          <p> {userInfo ? userInfo.profession : "loading..."} </p>
         </div>
+          <div className='interest'>
+              <h3>Bio</h3>
+              <p> {userInfo ? userInfo.bio : "loading..."} </p>
+          </div>
       </div>
       
       <div className='footer'>
