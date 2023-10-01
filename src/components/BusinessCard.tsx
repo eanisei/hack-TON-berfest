@@ -27,16 +27,17 @@ export function BusinessCard() {
 
         <div className='about'>
           <h3>Name</h3>
-          <p> {userInfo ? userInfo.name : "loading..."} </p>
+          <input value={userInfo ? userInfo.name : "loading..."}/>
         </div>
         <div className='interest'>
           <h3>Profession</h3>
-          <p> {userInfo ? userInfo.profession : "loading..."} </p>
+          <input value={userInfo ? userInfo.profession : "loading..."}/>
         </div>
           <div className='interest'>
               <h3>Bio</h3>
-              <p> {userInfo ? userInfo.bio : "loading..."} </p>
+              <input value={userInfo ? userInfo.bio : "loading..."}/>
           </div>
+          <button>Update</button>
       </div>
       
       <div className='footer'>
